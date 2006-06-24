@@ -1,5 +1,5 @@
 package Rubric::Entry::Formatter::Markdown;
-our $VERSION = '0.01';
+our $VERSION = '0.551';
 
 =head1 NAME
 
@@ -23,11 +23,15 @@ use Text::Markdown;
 
 =head1 METHODS
 
+=head2 C< as_html >
+
+=head2 C< as_text >
+
 =cut
 
 sub as_html {
-  my ($class, $arg) = @_;
-  return Text::Markdown::markdown($arg->{text});
+  my ($class, $arg, $config) = @_;
+  return Text::Markdown::markdown($arg->{text}, $config);
 }
 
 sub as_text {
@@ -51,7 +55,7 @@ changes.
 
 =head1 COPYRIGHT
 
-Copyright 2005 Ricardo SIGNES.  This program is free software;  you can
+Copyright 2005-2006 Ricardo SIGNES.  This program is free software;  you can
 redistribute it and/or modify it under the same terms as Perl itself.
 
 =cut
