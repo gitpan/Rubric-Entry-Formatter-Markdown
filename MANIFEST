@@ -1,5 +1,6 @@
 Changes
 inc/Module/Install.pm
+inc/Module/Install/AuthorTests.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
 inc/Module/Install/Fetch.pm
@@ -8,10 +9,12 @@ inc/Module/Install/Metadata.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/Rubric/Entry/Formatter/Markdown.pm
+LICENSE
 Makefile.PL
 MANIFEST
 META.yml			# Will be created by "make dist"
 README
 t/00-load.t
-t/pod-coverage.t
-t/pod.t
+t/perl-critic.t
+xt/pod-coverage.t
+xt/pod.t
