@@ -1,16 +1,56 @@
+
 use strict;
 use warnings;
 
-use inc::Module::Install;
 
-name          ('Rubric-Entry-Formatter-Markdown');
-author        ('Ricardo SIGNES <rjbs@cpan.org>');
-license       ('perl');
-version_from  ('lib/Rubric/Entry/Formatter/Markdown.pm');
 
-requires('Rubric'         => 0.13_02);
-requires('Text::Markdown' => '1.0.3');
+use ExtUtils::MakeMaker 6.30;
 
-author_tests('xt');
 
-WriteAll();
+
+my %WriteMakefileArgs = (
+  "ABSTRACT" => "format entries with Markdown (duh!)",
+  "AUTHOR" => "Ricardo SIGNES <rjbs\@cpan.org>",
+  "BUILD_REQUIRES" => {
+    "Test::More" => "0.96"
+  },
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
+  },
+  "DISTNAME" => "Rubric-Entry-Formatter-Markdown",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Rubric::Entry::Formatter::Markdown",
+  "PREREQ_PM" => {
+    "Text::Markdown" => 0,
+    "Text::MultiMarkdown" => 0,
+    "strict" => 0,
+    "warnings" => 0
+  },
+  "VERSION" => "0.554",
+  "test" => {
+    "TESTS" => "t/*.t"
+  }
+);
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
+
