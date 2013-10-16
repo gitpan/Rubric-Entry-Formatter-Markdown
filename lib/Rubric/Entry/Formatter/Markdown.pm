@@ -3,7 +3,7 @@ use warnings;
 
 package Rubric::Entry::Formatter::Markdown;
 {
-  $Rubric::Entry::Formatter::Markdown::VERSION = '0.554';
+  $Rubric::Entry::Formatter::Markdown::VERSION = '0.555';
 }
 # ABSTRACT: format entries with Markdown (duh!)
 
@@ -31,6 +31,7 @@ sub as_text {
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -39,7 +40,7 @@ Rubric::Entry::Formatter::Markdown - format entries with Markdown (duh!)
 
 =head1 VERSION
 
-version 0.554
+version 0.555
 
 =head1 DESCRIPTION
 
@@ -68,4 +69,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
